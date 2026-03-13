@@ -1,0 +1,283 @@
+/* styles.css - Responsive Version */
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lemonchiffon;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+header {
+    height: auto;
+    min-height: 50px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: rgb(82, 114, 151);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+header h2 {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    color: rgb(255, 217, 0);
+    margin: 0;
+    padding: 5px 0;
+}
+
+/* Navigation */
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 10px;
+    justify-content: center;
+}
+
+ul li {
+    height: auto;
+    width: auto;
+    background-color: blanchedalmond;
+    border-radius: 10px;
+    padding: 8px 15px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ul li a {
+    text-decoration: none;
+    color: crimson;
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    white-space: nowrap;
+}
+
+li:hover {
+    background-color: #ffd700;
+    transition: 0.8s ease-in;
+}
+
+a:hover {
+    color: aliceblue;
+}
+
+/* Contact Info in Header */
+.mail {
+    display: flex;
+    align-items: center;
+    color: beige;
+    margin: 5px;
+    font-size: clamp(0.7rem, 2vw, 0.9rem);
+}
+
+.mail img {
+    height: 24px;
+    width: 24px;
+    padding: 0 5px;
+}
+
+/* Footer Styles */
+footer {
+    height: auto;
+    min-height: 250px;
+    width: 100%;
+    background-color: rgb(54, 70, 83);
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+
+footer h3 {
+    color: white;
+    text-decoration: 2px solid rgb(165, 151, 151) underline;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: white;
+    padding-left: 10px;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
+
+.left, .mid, .right {
+    height: auto;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Footer Links */
+.mid a, .left a {
+    color: white;
+    text-decoration: none;
+    line-height: 1.8rem;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    display: inline-block;
+    margin: 5px 0;
+}
+
+.mid a:hover, .left a:hover {
+    color: #ffd700;
+    transition: 0.8s ease;
+}
+
+/* Address Section in Footer */
+.adim {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Social Media */
+.socialmedia {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.socialmedia img {
+    height: 28px;
+    width: 28px;
+    transition: transform 0.3s;
+}
+
+.socialmedia a:hover {
+    transform: rotate(20deg);
+}
+
+.fs {
+    margin: 15px 0;
+    text-align: center;
+}
+
+/* Footer Bottom */
+.footer {
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(54, 70, 83);
+    border-top: 1px solid rgb(168, 156, 156);
+    color: aliceblue;
+    font-size: clamp(0.7rem, 2vw, 0.9rem);
+}
+
+/* Responsive Design */
+@media (min-width: 576px) {
+    .left, .mid, .right {
+        width: 50%;
+    }
+    
+    .left, .mid {
+        border-right: none;
+        border-bottom: 1px solid rgb(168, 156, 156);
+    }
+    
+    footer {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 768px) {
+    header {
+        justify-content: space-around;
+        padding: 10px;
+    }
+    
+    ul {
+        gap: 15px;
+    }
+    
+    ul li {
+        margin: 0 5px;
+    }
+    
+    .mail {
+        margin: 0 10px;
+    }
+    
+    .left, .mid, .right {
+        width: 33.33%;
+        border-right: 1px solid rgb(168, 156, 156);
+        border-bottom: none;
+    }
+    
+    .right {
+        border-right: none;
+    }
+    
+    footer {
+        padding: 20px;
+        justify-content: space-between;
+    }
+    
+    .socialmedia {
+        margin-left: 0;
+        justify-content: center;
+    }
+    
+    .fs {
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .left, .mid {
+        text-align: center;
+    }
+    
+    .right {
+        text-align: left;
+    }
+    
+    .socialmedia {
+        justify-content: flex-start;
+        margin-left: 32%;
+    }
+    
+    .fs {
+        text-align: left;
+        padding-left: 50px;
+    }
+    
+    footer p {
+        padding-left: 50px;
+    }
+}
+
+@media (min-width: 1200px) {
+    header {
+        padding: 10px 40px;
+    }
+    
+    ul li {
+        padding: 10px 20px;
+    }
+    
+    .mail {
+        font-size: 1rem;
+    }
+    
+    .mail img {
+        height: 30px;
+        width: 30px;
+    }
+}

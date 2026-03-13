@@ -1,0 +1,2240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talentara Edu Tech - Premier Government Exam Coaching</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ====== GLOBAL RESET ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Fresh Color Palette */
+            --primary-dark: #0c1a33;
+            --primary-color: #1a365d;
+            --secondary-color: #2d5aa0;
+            --accent-color: #ff6b35;
+            --accent-light: #ff9e6d;
+            --light-bg: #f8fafc;
+            --light-gray: #e2e8f0;
+            --medium-gray: #94a3b8;
+            --dark-gray: #334155;
+            --white: #ffffff;
+            --nav-bg: rgba(12, 26, 51, 0.98);
+            --footer-bg: #0f172a;
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 12px;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ====== UTILITY CLASSES ====== */
+        .section-spacing {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .title-divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-color), var(--accent-light));
+            margin: 25px auto;
+            border-radius: 2px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 18px 42px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.4);
+        }
+        
+        .btn i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        .btn-light {
+            background: var(--white);
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+        
+        .btn-light:hover {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            color: var(--white);
+            border-color: transparent;
+        }
+        
+        /* ====== MODERN NAVBAR - FRESH DESIGN ====== */
+        .navbar-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.15);
+            transition: var(--transition);
+            padding: 0;
+        }
+        
+        .navbar-wrapper.scrolled {
+            padding: 0;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+        }
+        
+        /* Logo Section */
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            z-index: 1001;
+        }
+        
+        .logo-container {
+            position: relative;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            border-radius: 12px;
+            transform: rotate(45deg);
+            transition: var(--transition);
+        }
+        
+        .navbar-brand:hover .logo-bg {
+            transform: rotate(0deg);
+        }
+        
+        .logo-icon {
+            position: relative;
+            font-size: 1.6rem;
+            color: var(--white);
+            z-index: 1;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--accent-color), var(--accent-light));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text span {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Navigation Menu */
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 14px 22px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.3px;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .nav-link:hover::before {
+            left: 100%;
+        }
+        
+        .nav-link:hover {
+            background: var(--glass-bg);
+            color: var(--accent-light);
+            transform: translateY(-2px);
+        }
+        
+        .nav-item.active .nav-link {
+            background: rgba(255, 107, 53, 0.15);
+            color: var(--accent-light);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
+        }
+        
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 107, 53, 0.25);
+            border-radius: 12px;
+            padding: 12px 0;
+            min-width: 240px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(8px);
+        }
+        
+        .dropdown-item {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+            border-left: 3px solid transparent;
+            font-weight: 500;
+        }
+        
+        .dropdown-item:hover {
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--accent-light);
+            border-left: 3px solid var(--accent-color);
+            padding-left: 21px;
+        }
+        
+        .dropdown-item i {
+            width: 20px;
+            text-align: center;
+            color: var(--accent-color);
+        }
+        
+        .dropdown-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 8px 20px;
+        }
+        
+        /* Header Actions */
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .contact-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 12px 22px;
+            border-radius: 30px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .contact-badge:hover::before {
+            left: 100%;
+        }
+        
+        .contact-badge:hover {
+            background: rgba(255, 107, 53, 0.1);
+            border-color: rgba(255, 107, 53, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .contact-badge i {
+            color: var(--accent-color);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .contact-badge span {
+            color: var(--white);
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .contact-badge:hover i,
+        .contact-badge:hover span {
+            color: var(--accent-light);
+        }
+        
+        .enroll-btn {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            color: var(--white);
+            border: none;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.3);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+        
+        .enroll-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .enroll-btn:hover::before {
+            left: 100%;
+        }
+        
+        .enroll-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+            background: linear-gradient(135deg, var(--accent-light), var(--accent-color));
+        }
+        
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.6rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: var(--transition);
+            z-index: 1001;
+        }
+        
+        .menu-toggle:hover {
+            background: rgba(255, 107, 53, 0.15);
+            color: var(--accent-light);
+        }
+        
+        /* ====== HERO SECTION ====== */
+        .hero {
+            background: linear-gradient(rgba(12, 26, 51, 0.9), rgba(26, 53, 93, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 180px 0 120px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 90px;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .hero-highlight {
+            color: var(--accent-light);
+            font-weight: 700;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-light);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* ====== ANNOUNCEMENT BAR ====== */
+        .announcement-bar {
+            background: linear-gradient(90deg, var(--accent-color), #ff8e53, #ffb366);
+            color: var(--white);
+            padding: 14px 0;
+            position: relative;
+            overflow: hidden;
+            margin-top: 90px;
+        }
+        
+        .announcement-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .announcement-icon {
+            font-size: 1.3rem;
+            animation: bellRing 2s infinite;
+            flex-shrink: 0;
+        }
+        
+        .announcement-text {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin: 0 5px;
+            font-weight: 700;
+        }
+        
+        /* ====== COURSES SECTION ====== */
+        .courses-section {
+            background: var(--light-bg);
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .course-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .course-icon {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            font-size: 3.5rem;
+        }
+        
+        .course-content {
+            padding: 30px;
+        }
+        
+        .course-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+        
+        .course-content p {
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .course-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .course-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: var(--dark-gray);
+        }
+        
+        .course-features i {
+            color: var(--accent-color);
+        }
+        
+        /* ====== FEATURES SECTION ====== */
+        .features-section {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--accent-color);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--white);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        /* ====== PARTNERS SECTION ====== */
+        .partners-section {
+            background: var(--white);
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            align-items: center;
+        }
+        
+        .partner-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--light-gray);
+            transition: var(--transition);
+            min-height: 150px;
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .partner-logo {
+            max-width: 100%;
+            height: auto;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .partner-card:hover .partner-logo {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        /* ====== TESTIMONIALS SECTION ====== */
+        .testimonials-section {
+            background: var(--light-bg);
+        }
+        
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 50px auto 0;
+            position: relative;
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            position: relative;
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .author-info h4 {
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* ====== CTA SECTION ====== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* ====== MODERN FOOTER - FRESH DESIGN ====== */
+        .footer-wrapper {
+            background: var(--footer-bg);
+            color: var(--white);
+            padding: 80px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+        }
+        
+        .footer-top {
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+        }
+        
+        /* Footer Brand */
+        .footer-brand {
+            margin-bottom: 25px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            margin-bottom: 25px;
+        }
+        
+        .footer-logo-container {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .footer-logo-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            border-radius: 12px;
+            transform: rotate(45deg);
+            transition: var(--transition);
+        }
+        
+        .footer-logo:hover .footer-logo-bg {
+            transform: rotate(0deg);
+        }
+        
+        .footer-logo-icon {
+            position: relative;
+            font-size: 1.8rem;
+            color: var(--white);
+            z-index: 1;
+        }
+        
+        .footer-logo-text h3 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--accent-color), var(--accent-light));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+        
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid transparent;
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .social-link i {
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover::before {
+            opacity: 1;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+            border-color: var(--accent-color);
+        }
+        
+        .social-link:hover i {
+            color: var(--white);
+            transform: scale(1.1);
+        }
+        
+        /* Footer Columns */
+        .footer-column h4 {
+            font-size: 1.3rem;
+            color: var(--accent-light);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            position: relative;
+            font-weight: 700;
+        }
+        
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        /* Footer Links */
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-left: 3px solid transparent;
+            font-weight: 500;
+        }
+        
+        .footer-links a:hover {
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--accent-light);
+            transform: translateX(8px);
+            border-left: 3px solid var(--accent-color);
+        }
+        
+        .footer-links a i {
+            color: var(--accent-color);
+            width: 20px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover i {
+            transform: scale(1.1);
+            color: var(--accent-light);
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 22px;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 14px 18px;
+            border-radius: 10px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 107, 53, 0.08);
+            border-color: rgba(255, 107, 53, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .contact-icon {
+            background: rgba(255, 255, 255, 0.1);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover .contact-icon {
+            background: var(--accent-color);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+        
+        .contact-details h5 {
+            color: var(--white);
+            margin-bottom: 6px;
+            font-size: 1.05rem;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover .contact-details h5 {
+            color: var(--accent-light);
+        }
+        
+        .contact-details p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover .contact-details p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Newsletter */
+        .newsletter-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 28px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            transition: var(--transition);
+        }
+        
+        .newsletter-box:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .newsletter-box h4 {
+            margin-top: 0;
+        }
+        
+        .newsletter-box p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 22px;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .newsletter-form input {
+            padding: 16px 22px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.07);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+        
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .newsletter-form button {
+            padding: 16px 22px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter-form button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .newsletter-form button:hover::before {
+            left: 100%;
+        }
+        
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        /* Footer Bottom */
+        .footer-bottom {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        .footer-menu {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .footer-menu a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .footer-menu a:hover {
+            color: var(--accent-light);
+            background: rgba(255, 107, 53, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.3);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .back-to-top::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .back-to-top:hover::before {
+            left: 100%;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+        }
+        
+        /* ====== ANIMATIONS ====== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes bellRing {
+            0%, 100% { transform: rotate(0); }
+            10%, 30%, 50%, 70%, 90% { transform: rotate(-10deg); }
+            20%, 40%, 60%, 80% { transform: rotate(10deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* ====== RESPONSIVE DESIGN ====== */
+        @media (max-width: 1100px) {
+            .container {
+                max-width: 100%;
+                padding: 0 25px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .navbar-nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 85%;
+                height: 100vh;
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 100px 40px 40px;
+                transition: left 0.4s ease;
+                z-index: 999;
+                box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+                border-right: 1px solid rgba(255, 107, 53, 0.2);
+            }
+            
+            .navbar-nav.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                width: 100%;
+                padding: 18px 25px;
+                border-radius: 10px;
+                font-size: 1.05rem;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 107, 53, 0.2);
+                box-shadow: none;
+                padding: 10px 0 10px 30px;
+                display: none;
+                margin-top: 10px;
+                margin-left: 20px;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .navbar-actions {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+            
+            .footer-content {
+                gap: 40px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 25px;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .section-spacing {
+                padding: 80px 0;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title p {
+                font-size: 1.1rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+            
+            .navbar-nav {
+                width: 90%;
+                padding: 100px 30px 30px;
+            }
+            
+            .footer-logo {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .footer-brand {
+                text-align: center;
+            }
+            
+            .footer-social {
+                justify-content: center;
+            }
+            
+            .back-to-top {
+                bottom: 25px;
+                right: 25px;
+                width: 48px;
+                height: 48px;
+            }
+            
+            .hero-stats {
+                gap: 30px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .footer-column h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-links a {
+                justify-content: center;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            
+            .contact-icon {
+                margin-bottom: 10px;
+            }
+            
+            .footer-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .logo-text h2 {
+                font-size: 1.6rem;
+            }
+            
+            .footer-logo-text h3 {
+                font-size: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .btn {
+                padding: 16px 32px;
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .title-divider {
+                width: 60px;
+            }
+            
+            .hero-stats {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Navbar -->
+    <header class="navbar-wrapper" id="navbar">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="navbar-brand">
+                    <div class="logo-container">
+                        <div class="logo-bg"></div>
+                        <div class="logo-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <div class="logo-text">
+                        <h2>Talentara Edu Tech</h2>
+                        <span>Pvt. Ltd.</span>
+                    </div>
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="navbar-nav" id="navbarNav">
+                    <li class="nav-item active">
+                        <a href="index.html" class="nav-link">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">
+                            <i class="fas fa-info-circle"></i>
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="services.html" class="nav-link">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Courses</span>
+                            <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: auto;"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="services.html#banking" class="dropdown-item">
+                                <i class="fas fa-university"></i>
+                                <span>Banking Exams</span>
+                            </a>
+                            <a href="services.html#ssc" class="dropdown-item">
+                                <i class="fas fa-file-contract"></i>
+                                <span>SSC Exams</span>
+                            </a>
+                            <a href="services.html#tnpsc" class="dropdown-item">
+                                <i class="fas fa-landmark"></i>
+                                <span>TNPSC Exams</span>
+                            </a>
+                            <a href="services.html#railway" class="dropdown-item">
+                                <i class="fas fa-train"></i>
+                                <span>Railway Exams</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="services.html" class="dropdown-item">
+                                <i class="fas fa-list"></i>
+                                <span>All Courses</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            <i class="fas fa-address-book"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="navbar-actions">
+                    <div class="contact-badge" onclick="window.location.href='tel:+919363721441'">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 9363721441</span>
+                    </div>
+                    <button class="enroll-btn" onclick="window.location.href='contact.html'">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Enroll Now</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container announcement-content">
+            <div class="announcement-icon">
+                <i class="fas fa-bullhorn"></i>
+            </div>
+            <div class="announcement-text">
+                <span class="highlight">NEW BATCH</span> starting from 1st June 2025 for Banking, SSC, TNPSC & Railway exams. 
+                <span style="margin: 0 15px;">|</span>
+                <span class="highlight">RRB Section Controller</span> application status released!
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate__animated animate__fadeInUp">Achieve Your Government Job Dream</h1>
+                <p class="animate__animated animate__fadeInUp">Comprehensive offline coaching for <span class="hero-highlight">Banking, SSC, TNPSC & Railway</span> exams in Tirunelveli. Powered by <strong>Talentara Edu Tech Pvt. Ltd.</strong></p>
+                <a href="contact.html" class="btn animate__animated animate__fadeInUp">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Students Enrolled</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Batch Toppers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Doubt Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses-section section-spacing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Comprehensive Courses</h2>
+                <div class="title-divider"></div>
+                <p>Specialized coaching programs designed for success in various government examinations</p>
+            </div>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>Banking Exams</h3>
+                        <p>Complete preparation for IBPS PO, Clerk, SBI, RBI exams with comprehensive study material and mock tests.</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check-circle"></i> Quantitative Aptitude</li>
+                            <li><i class="fas fa-check-circle"></i> Reasoning Ability</li>
+                            <li><i class="fas fa-check-circle"></i> English Language</li>
+                            <li><i class="fas fa-check-circle"></i> General Awareness</li>
+                        </ul>
+                        <a href="services.html#banking" class="btn btn-light">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>SSC Exams</h3>
+                        <p>Expert coaching for SSC CGL, CHSL, MTS, Steno with focused strategy and regular practice sessions.</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check-circle"></i> General Intelligence</li>
+                            <li><i class="fas fa-check-circle"></i> General Awareness</li>
+                            <li><i class="fas fa-check-circle"></i> Quantitative Aptitude</li>
+                            <li><i class="fas fa-check-circle"></i> English Comprehension</li>
+                        </ul>
+                        <a href="services.html#ssc" class="btn btn-light">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>TNPSC Exams</h3>
+                        <p>Comprehensive preparation for Group 1, 2, 4, VAO exams with Tamil Nadu specific syllabus coverage.</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check-circle"></i> General Studies</li>
+                            <li><i class="fas fa-check-circle"></i> Current Affairs</li>
+                            <li><i class="fas fa-check-circle"></i> Tamil Language</li>
+                            <li><i class="fas fa-check-circle"></i> Aptitude Tests</li>
+                        </ul>
+                        <a href="services.html#tnpsc" class="btn btn-light">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-train"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>Railway Exams</h3>
+                        <p>Specialized coaching for RRB NTPC, Group D, ALP, Technician exams with railway-specific patterns.</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check-circle"></i> Mathematics</li>
+                            <li><i class="fas fa-check-circle"></i> General Intelligence</li>
+                            <li><i class="fas fa-check-circle"></i> General Science</li>
+                            <li><i class="fas fa-check-circle"></i> Current Affairs</li>
+                        </ul>
+                        <a href="services.html#railway" class="btn btn-light">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section section-spacing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Talentara?</h2>
+                <div class="title-divider"></div>
+                <p>Our commitment to excellence sets us apart in competitive exam coaching</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Expert Faculty</h3>
+                    <p>Learn from experienced faculty with proven track records in government exam preparation.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Comprehensive Study Material</h3>
+                    <p>Updated study material covering all topics with previous year question papers and solutions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Regular Mock Tests</h3>
+                    <p>Weekly mock tests with detailed analysis and personalized performance feedback.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Small Batch Size</h3>
+                    <p>Limited students per batch for personalized attention and better learning experience.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Flexible Timings</h3>
+                    <p>Morning and evening batches available to suit working professionals and students.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Proven Results</h3>
+                    <p>Consistent track record of producing top rankers in various government examinations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section section-spacing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Official Partners</h2>
+                <div class="title-divider"></div>
+                <p>Collaborating with industry leaders to provide the best learning experience</p>
+            </div>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">EduTech Partner</div>
+                </div>
+                <div class="partner-card">
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">Study Material</div>
+                </div>
+                <div class="partner-card">
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">Mock Test Platform</div>
+                </div>
+                <div class="partner-card">
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">Success Stories</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section section-spacing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Student Success Stories</h2>
+                <div class="title-divider"></div>
+                <p>Hear from our successful students who achieved their government job dreams</p>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Talentara's comprehensive coaching and personalized guidance helped me secure AIR 24 in TNPSC Group 2. The faculty's dedication and regular mock tests were game-changers."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div class="author-info">
+                            <h4>Ramesh Kumar</h4>
+                            <p>TNPSC Group 2 - AIR 24</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section-spacing">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Start Your Preparation Today</h2>
+                <p>Join our institute in Tirunelveli and take the right step towards your government job success. Limited seats available for the upcoming batch.</p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 40px;">
+                    <a href="contact.html" class="btn">Contact Us <i class="fas fa-phone-alt"></i></a>
+                    <a href="services.html" class="btn btn-light">View Courses <i class="fas fa-book-open"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="footer-wrapper">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-content">
+                    <!-- Brand Column -->
+                    <div class="footer-column">
+                        <div class="footer-brand">
+                            <a href="index.html" class="footer-logo">
+                                <div class="footer-logo-container">
+                                    <div class="footer-logo-bg"></div>
+                                    <div class="footer-logo-icon">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                </div>
+                                <div class="footer-logo-text">
+                                    <h3>Talentara Edu Tech</h3>
+                                </div>
+                            </a>
+                            <p class="footer-description">
+                                Premier government exam coaching institute in Tirunelveli, providing comprehensive offline coaching for Banking, SSC, TNPSC & Railway exams.
+                            </p>
+                            <div class="footer-social">
+                                <a href="https://www.linkedin.com/company/talentara-edu-tech-pvt-ltd/" target="_blank" class="social-link" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJTNHzSCfDSDxnxhnjBwVMjzdllhRHSvcBtjPtpVjkdxTDDlFjkBzjkSHCjwVKFVlbCjrHL" target="_blank" class="social-link" title="Email">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="https://www.instagram.com/talentarabusinesssolutions/" target="_blank" class="social-link" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" target="_blank" class="social-link" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links Column -->
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Courses Column -->
+                    <div class="footer-column">
+                        <h4>Our Courses</h4>
+                        <ul class="footer-links">
+                            <li><a href="services.html#banking"><i class="fas fa-chevron-right"></i> Banking Exams</a></li>
+                            <li><a href="services.html#ssc"><i class="fas fa-chevron-right"></i> SSC Exams</a></li>
+                            <li><a href="services.html#tnpsc"><i class="fas fa-chevron-right"></i> TNPSC Exams</a></li>
+                            <li><a href="services.html#railway"><i class="fas fa-chevron-right"></i> Railway Exams</a></li>
+                            <li><a href="services.html#upsc"><i class="fas fa-chevron-right"></i> UPSC Exams</a></li>
+                            <li><a href="services.html#insurance"><i class="fas fa-chevron-right"></i> Insurance Exams</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contact Column -->
+                    <div class="footer-column">
+                        <h4>Contact Info</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h5>Our Location</h5>
+                                    <p>Talentara Edu Tech Pvt. Ltd,<br>3rd Floor, GRR Building,<br>STC College Rd, Tirunelveli<br>Tamil Nadu 627007</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h5>Phone Number</h5>
+                                    <p>+91 9363721441</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h5>Email Address</h5>
+                                    <p>talentara@talentara.in</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Newsletter Column -->
+                    <div class="footer-column">
+                        <div class="newsletter-box">
+                            <h4>Newsletter</h4>
+                            <p>Subscribe to our newsletter for updates on new courses, exam notifications, and success stories.</p>
+                            <form class="newsletter-form" id="newsletterForm">
+                                <input type="email" placeholder="Enter your email" required>
+                                <button type="submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                    <span>Subscribe</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>© 2025 Talentara Edu Tech Pvt. Ltd. All Rights Reserved.</p>
+                </div>
+                <div class="footer-menu">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // ====== NAVBAR SCROLL EFFECT ======
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // ====== MOBILE MENU TOGGLE ======
+        const menuToggle = document.getElementById('menuToggle');
+        const navbarNav = document.getElementById('navbarNav');
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        menuToggle.addEventListener('click', () => {
+            navbarNav.classList.toggle('active');
+            menuToggle.innerHTML = navbarNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Mobile dropdown toggle
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('.nav-link');
+            
+            if (window.innerWidth <= 992) {
+                link.addEventListener('click', (e) => {
+                    if (dropdown.classList.contains('dropdown')) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                        
+                        // Close other dropdowns
+                        dropdowns.forEach(otherDropdown => {
+                            if (otherDropdown !== dropdown) {
+                                otherDropdown.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 992) {
+                if (!navbarNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                    navbarNav.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+                }
+            }
+        });
+        
+        // ====== BACK TO TOP BUTTON ======
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // ====== NEWSLETTER FORM ======
+        const newsletterForm = document.getElementById('newsletterForm');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const emailInput = newsletterForm.querySelector('input[type="email"]');
+                const button = newsletterForm.querySelector('button');
+                
+                if (emailInput.value) {
+                    // Save original button text
+                    const originalText = button.innerHTML;
+                    
+                    // Show loading state
+                    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Subscribing...</span>';
+                    button.disabled = true;
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        // Show success state
+                        button.innerHTML = '<i class="fas fa-check"></i> <span>Subscribed!</span>';
+                        button.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+                        
+                        // Reset after 2 seconds
+                        setTimeout(() => {
+                            button.innerHTML = originalText;
+                            button.disabled = false;
+                            button.style.background = '';
+                            emailInput.value = '';
+                        }, 2000);
+                    }, 1500);
+                }
+            });
+        }
+        
+        // ====== SMOOTH SCROLL FOR ANCHOR LINKS ======
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 992 && navbarNav.classList.contains('active')) {
+                        navbarNav.classList.remove('active');
+                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+                    }
+                }
+            });
+        });
+        
+        // ====== ANIMATE ELEMENTS ON SCROLL ======
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.course-card, .feature-card, .partner-card, .testimonial-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Initialize animation states
+        document.querySelectorAll('.course-card, .feature-card, .partner-card, .testimonial-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        setTimeout(animateOnScroll, 500);
+        
+        // ====== TESTIMONIAL SLIDER ======
+        const testimonials = [
+            {
+                text: "Talentara's comprehensive coaching and personalized guidance helped me secure AIR 24 in TNPSC Group 2. The faculty's dedication and regular mock tests were game-changers.",
+                name: "Ramesh Kumar",
+                achievement: "TNPSC Group 2 - AIR 24",
+                initials: "RK"
+            },
+            {
+                text: "I cleared SBI PO 2024 with Talentara's expert guidance. Their study material and regular mock tests prepared me thoroughly for both prelims and mains.",
+                name: "Priya Sharma",
+                achievement: "SBI PO 2024",
+                initials: "PS"
+            },
+            {
+                text: "The faculty at Talentara are exceptional. Their teaching methods and doubt-clearing sessions helped me crack SSC CGL in my first attempt.",
+                name: "Arjun Patel",
+                achievement: "SSC CGL 2023",
+                initials: "AP"
+            }
+        ];
+        
+        let currentTestimonial = 0;
+        const testimonialCard = document.querySelector('.testimonial-card');
+        
+        function rotateTestimonials() {
+            if (!testimonialCard) return;
+            
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            const testimonial = testimonials[currentTestimonial];
+            
+            // Fade out
+            testimonialCard.style.opacity = '0';
+            
+            setTimeout(() => {
+                testimonialCard.innerHTML = `
+                    <div class="testimonial-text">${testimonial.text}</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">${testimonial.initials}</div>
+                        <div class="author-info">
+                            <h4>${testimonial.name}</h4>
+                            <p>${testimonial.achievement}</p>
+                        </div>
+                    </div>
+                `;
+                
+                // Fade in
+                setTimeout(() => {
+                    testimonialCard.style.opacity = '1';
+                }, 50);
+            }, 300);
+        }
+        
+        // Rotate testimonials every 5 seconds
+        if (testimonialCard) {
+            setInterval(rotateTestimonials, 5000);
+        }
+    </script>
+</body>
+</html>
